@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: deriv-trading-bot
+    env: node
+    region: oregon
+    plan: starter
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DERIV_APP_ID
+        sync: false
+      - key: DERIV_TOKEN
+        sync: false
+      - key: SYMBOL
+        value: R_10
+      - key: BASE_STAKE
+        value: 1
+      - key: DURATION
+        value: 1
+      - key: ENABLE_TRADING
+        value: true
+      - key: LOG_LEVEL
+        value: info
+      - key: MAX_CONSECUTIVE_LOSSES
+        value: 5
+      - key: COOLDOWN_MS
+        value: 5000
+    autoDeploy: true
+    disk:
+      name: bot-data
+      mountPath: /app/data
+      sizeGB: 1
+
+databases: []

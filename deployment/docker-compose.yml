@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  deriv-bot:
+    build: .
+    container_name: deriv-trading-bot
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - DERIV_APP_ID=${DERIV_APP_ID}
+      - DERIV_TOKEN=${DERIV_TOKEN}
+      - SYMBOL=${SYMBOL:-R_10}
+      - BASE_STAKE=${BASE_STAKE:-1}
+      - DURATION=${DURATION:-1}
+      - ENABLE_TRADING=${ENABLE_TRADING:-true}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - bot-network
+
+networks:
+  bot-network:
+    driver: bridge
