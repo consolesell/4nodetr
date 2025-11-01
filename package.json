@@ -1,0 +1,29 @@
+{
+  "name": "deriv-cloud-bot",
+  "version": "2.0.0",
+  "description": "Autonomous Deriv trading bot with advanced ML capabilities",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "nodemon bot.js",
+    "pm2": "pm2 start bot.js --name deriv-bot --time",
+    "pm2:stop": "pm2 stop deriv-bot",
+    "pm2:restart": "pm2 restart deriv-bot",
+    "pm2:logs": "pm2 logs deriv-bot"
+  },
+  "keywords": ["deriv", "trading", "bot", "machine-learning"],
+  "author": "Givan",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.14.2",
+    "dotenv": "^16.3.1",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

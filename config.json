@@ -1,0 +1,35 @@
+{
+  "trading": {
+    "symbol": "R_10",
+    "baseStake": 1,
+    "duration": 1,
+    "martingaleMultiplier": 2,
+    "maxConsecutiveLosses": 5,
+    "cooldownMs": 5000
+  },
+  "learning": {
+    "baseLearningRate": 0.15,
+    "learningRateDecay": 0.9995,
+    "discountFactor": 0.92,
+    "baseConfidenceThreshold": 0.57,
+    "epsilon": 0.0
+  },
+  "limits": {
+    "maxHistory": 5000,
+    "maxPatternMemory": 100,
+    "maxContextMemory": 500,
+    "maxTradeHistory": 200
+  },
+  "reconnect": {
+    "enabled": true,
+    "intervalMs": 5000,
+    "maxAttempts": 10
+  },
+  "logging": {
+    "console": true,
+    "file": true,
+    "level": "info",
+    "maxFiles": 30,
+    "maxSize": "20m"
+  }
+}
